@@ -1,23 +1,5 @@
 """
-
-Err-1:
-AttributeError: 'DataParallel' object has no attribute 'output_shape'
-https://github.com/jytime/Mask_RCNN_Pytorch/issues/2
-
-Err-2:
-RuntimeError: Expected tensor for argument #1 'input' to have the same 
-device as tensor for argument #2 'weight'; but device 1 does not equal 0 
-(while checking arguments for cudnn_convolution) --> Serious Error
-https://github.com/pytorch/pytorch/issues/8637
-
-
-Hourglass:
-obtained from:
-https://github.com/princeton-vl/pytorch_stacked_hourglass/blob/master/models/layers.py
-
-NormalLoss:
-https://github.com/haofengac/MonoDepth-FPN-PyTorch
-
+Model and loss description file
 """
 
 import torch.nn as nn
@@ -159,21 +141,9 @@ class DenseResidualBlock(nn.Module):
         self.b3 = block(in_features=3 * filters)
         self.b4 = block(in_features=4 * filters)
         self.b5 = block(in_features=5 * filters, non_linearity=False)
-        # self.blocks = [self.b1, self.b2, self.b3, self.b4, self.b5]
-    
-    # def block(self, filters, in_features, non_linearity=True):
-        # layers = [nn.Conv2d(in_features, filters, 3, 1, 1, bias=True)]
-        # if non_linearity:
-            # layers += [nn.LeakyReLU()]
-        # return nn.Sequential(*layers)
     
     def forward(self, x):
         inputs = x
-        # for b in self.blocks:
-            # print("This is ERROR!")
-            # out = b(inputs)
-            # print("This is another ERROR!")
-            # inputs = torch.cat([inputs, out], 1)
         
         out = self.b1(inputs)
         inputs = torch.cat([inputs, out], 1)
