@@ -1,0 +1,8 @@
+#temp files
+.nfs*
+
+#cache files
+__pycache__
+*.pyc
+
+logdir/*
