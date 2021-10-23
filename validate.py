@@ -62,7 +62,7 @@ def getOpt():
     parser.add_argument("--hr_width", type=int, default=256, help="high res. image width")
     parser.add_argument("--channels", type=int, default=1, help="number of image channels")
     parser.add_argument("--residual_blocks", type=int, default=17, help="number of residual blocks in the generator")
-    parser.add_argument("--validation_interval", type=int, default=12, help="interval between two consecutive validations")
+    parser.add_argument("--validation_interval", type=int, default=4000, help="interval between two consecutive validations")
     parser.add_argument("--lambda_adv", type=float, default=5e-3, help="adversarial loss weight")
     parser.add_argument("--lambda_pixel", type=float, default=1e-2, help="pixel-wise loss weight")
     parser.add_argument("--gpus", metavar='DEV_ID', default=None,
