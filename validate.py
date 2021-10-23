@@ -198,15 +198,11 @@ def main():
     # create the logdir if it does not exist
     os.makedirs(LOGDIR, exist_ok=True)
    
-    # val_image_save_path = [os.path.join(LOGDIR,opt.name,"gt_images"),os.path.join(LOGDIR,opt.name,"pred_images")]
     val_image_save_path = os.path.join(LOGDIR,opt.name,"val_images")
     log_file_name = os.path.join(LOGDIR,opt.name,'%s.log'%opt.name)
     tensorboard_save_path = os.path.join(LOGDIR,opt.name)
 
     os.makedirs(val_image_save_path, exist_ok=True)
-    
-    # os.makedirs(val_image_save_path[0], exist_ok=True)
-    # os.makedirs(val_image_save_path[1], exist_ok=True)
 
     # Create a logger
     logger = createLogger(log_file_name)
