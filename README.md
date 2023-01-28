@@ -53,7 +53,7 @@ python train.py --gpus=0,1,2,3 --batch_size=8 --n_epochs=10 --residual_blocks=17
 ### Resume from checkpoint
 In order to resume from a checkpoint, you can use the following command:
 ```
-python esrgan.py --gpus=0,1,2,3 --batch_size=8 --resume_epoch=1 --checkpoint_model_path=./logdir/train_test/saved_models --n_epochs=11 --residual_blocks=17  --decay_epoch=5 -n train_resume_test
+python train.py --gpus=0,1,2,3 --batch_size=8 --resume_epoch=1 --checkpoint_model_path=./logdir/train_test/saved_models --n_epochs=11 --residual_blocks=17  --decay_epoch=5 -n train_resume_test
 ```
 - The "--resume_epoch" and "--checkpoint_model_path" are required for checkpoint resuming
 - Typically the saved models are names as "generator_{}.pth" "discriminator_{}.pth" where {} contains the epoch to be resumed from
